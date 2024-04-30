@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Calculator</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #FF6B6B, #FFE66D, #8EE7FF, #A6FFCB, #FF7FED, #48C6EF, #FFA931);
+    }
+    
+    .calculator-container {
+        border: 2px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+   
+    input, button {
+        margin: 5px;
+        padding: 8px;
+    }
+    label {
+        margin-right: 10px;
+    }
+</style>
+<script>
+function addNumbers() {
+    var num1 = parseFloat(document.getElementById('firstNumber').value);
+    var num2 = parseFloat(document.getElementById('secondNumber').value);
+    document.getElementById('result').value = (num1 + num2).toFixed(2);
+}
+
+function subtractNumbers() {
+    var num1 = parseFloat(document.getElementById('firstNumber').value);
+    var num2 = parseFloat(document.getElementById('secondNumber').value);
+    document.getElementById('result').value = (num1 - num2).toFixed(2);
+}
+
+function multiplyNumbers() {
+    var num1 = parseFloat(document.getElementById('firstNumber').value);
+    var num2 = parseFloat(document.getElementById('secondNumber').value);
+    document.getElementById('result').value = (num1 * num2).toFixed(2);
+}
+
+function divideNumbers() {
+    var num1 = parseFloat(document.getElementById('firstNumber').value);
+    var num2 = parseFloat(document.getElementById('secondNumber').value);
+    var result = num2 !== 0 ? (num1 / num2) : 'Infinity';
+    document.getElementById('result').value = result.toFixed(2);
+}
+
+function clearFields() {
+    document.getElementById('firstNumber').value = '';
+    document.getElementById('secondNumber').value = '';
+    document.getElementById('result').value = '';
+}
+
+function showAbout() {
+    alert("Work of Your Full Name");
+}
+</script>
+</head>
+<body>
+    <div class="calculator-container">
+        <div>
+            <label for="firstNumber">First Number:</label>
+            <input type="text" id="firstNumber">
+        </div>
+        <div>
+            <label for="secondNumber">Second Number:</label>
+            <input type="text" id="secondNumber">
+        </div>
+        <div>
+            <label for="result">Result:</label>
+            <input type="text" id="result" disabled>
+        </div>
+        <div>
+            <button onclick="addNumbers()">Add</button>
+            <button onclick="subtractNumbers()">Subtract</button>
+            <button onclick="multiplyNumbers()">Multiply</button>
+            <button onclick="divideNumbers()">Divide</button>
+            <button onclick="clearFields()">Clear</button>
+            <button onclick="showAbout()">About</button>
+        </div>
+    </div>
+</body>
+</html>
